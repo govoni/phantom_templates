@@ -1,4 +1,3 @@
-
 *      CALL iread('idum',idum,1)   ! idum=initialization random number seed
 *                                !  must be a large negative number
 idum  -123456789
@@ -12,8 +11,17 @@ PDFname    /afs/cern.ch/user/b/ballest/phantom/lhapdf-5.8.9_work/share/lhapdf/PD
 *          ! =1 for all processes, based on pT's of ALL OUTGOING PARTICLES
 *          ! =2 process by process, based on pT of the (RECONSTRUCTED) TOP
 *          !    if possible, otherwise as done in option 1
-*          ! =3 Q is the higgs mass rmh
-i_PDFscale  1
+*          ! =3 Q a fixed numerical scale given in this file
+*          ! =4 Q= m4l/sqrt(2)  (invariant mass of the 4 leptons)/sqrt(2) 
+*                  (valid only for prosesses with four outgoing leptons)
+i_PDFscale  4
+
+* Here give the numerical value for Q if i_PDFscale=3 (for all other choices
+*    the value is irrelevant)    
+*      if (i_PDFscale.eq.3) then
+*        CALL rread('fixed_PDFscale',fixed_PDFscale,1)
+*      endif
+fixed_PDFscale 300.d0
 
 *      CALL iread('i_coll',i_coll,1) !  determines the type of accelerator:
 *                                    !   i_coll=1 => p-p
