@@ -160,12 +160,12 @@ ecoll    8000.d0
 
 *      CALL rread('rmh',rmh,1)   ! Higgs mass (GeV)
 *	                         ! <0 means no Higgs  
-rmh      126.d0
+rmh      125.6d0
 
 *      CALL rread('gamh',gamh,1)   ! Higgs width (GeV)
 *                                  ! <0 means computed by coupling.f
 
-gamh     0.00421d0
+gamh     0.00415d0
 
 *      CALL iread('i_ccfam',i_ccfam,1)           ! family+CC conjugate
 i_ccfam  1
