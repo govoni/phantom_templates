@@ -162,7 +162,7 @@ ecoll    8000.d0
 *                                          ! couplings
 *                ! it only works for i_pertorder = 1 (alpha_em^6) 
 *                ! for SM  use    ghfactor    1.d0                               
-ghfactor      25.d0
+ghfactor      2.2361d0
 
 *      CALL rread('rmh',rmh,1)   ! Higgs mass (GeV)
 *	                         ! <0 means no Higgs  
@@ -171,7 +171,7 @@ rmh      125.6d0
 *      CALL rread('gamh',gamh,1)   ! Higgs width (GeV)
 *                                  ! <0 means computed by coupling.f
 
-gamh     0.00415d0
+gamh     0.10375d0
 
 *      CALL iread('i_ccfam',i_ccfam,1)           ! family+CC conjugate
 i_ccfam  1
