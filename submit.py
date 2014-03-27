@@ -55,13 +55,15 @@ if __name__ == '__main__':
 #        print 'please provide an existing template file with relative path'
 #        sys.exit (1) 
 
-    if args.template == 'none' :
-        print 'please provide the name of the template file with relative path'
-        sys.exit (1) 
-    elif not os.path.exists (args.template) :
-        print 'file', args.template, 'not found'
-        print 'please provide an existing template file with relative path'
-        sys.exit (1) 
+    if not args.step == '3':
+        if args.template == 'none':
+            print 'please provide the name of the template file with relative path'
+            sys.exit (1) 
+        elif not os.path.exists (args.template) :
+            print 'file', args.template, 'not found'
+            print 'please provide an existing template file with relative path'
+            sys.exit (1) 
+
 
     substitute = {
         'HMASS_TEMP':  args.mass, 
@@ -125,6 +127,31 @@ if __name__ == '__main__':
     elif args.step == '3' :
         # generate the events
         # ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- ---- 
-        print 'implement the third step please'
+        if args.folder == 'none' :
+            print 'please provide a folder name (without the "gen_" prefix)'
+            sys.exit (1)
+        gridFolder = os.getcwd () + '/grid_' + args.folder    
+        genFolder  = os.getcwd () + '/gen_'  + args.folder    
+        if not os.path.exists (genFolder) :
+            print 'folder', genFolder, 'does not exist, quitting'
+            sys.exit (1)
+        if not os.path.exists (gridFolder) :
+            print 'folder', gridFolder, 'does not exist, quitting'
+            sys.exit (1)
+        command = 'cd ' + gridFolder + '; grep SIGMA */run.out > res ; '
+        command += '/afs/cern.ch/user/g/govoni/work/PHANTOM/phantom_at_cern/phantom_1_2_3/tools/totint.exe > result '
+        print command
+        execute (command)
+                
+        command = 'cd ' + genFolder + '; grep -A 1 total\ integral gen*/run.o* > res ; '
+        command += '/afs/cern.ch/user/g/govoni/work/PHANTOM/phantom_at_cern/phantom_1_2_3/tools/gentotint.exe > result '
+        print command
+        execute (command)
+        
+        print '---> cross section from grids:'
+        execute ('tail -n 1 ' + gridFolder + '/result')
+        print '---> cross section from generation:'
+        execute ('tail -n 1 ' + genFolder + '/result')
+
 
 
