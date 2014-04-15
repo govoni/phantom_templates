@@ -15,7 +15,7 @@ PDFname    /afs/cern.ch/user/b/ballest/phantom/lhapdf-5.8.9_work/share/lhapdf/PD
 *          ! =3 Q a fixed numerical scale given in this file
 *          ! =4 Q= m4l/sqrt(2)  (invariant mass of the 4 leptons)/sqrt(2) 
 *                  (valid only for prosesses with four outgoing leptons)
-i_PDFscale  3
+i_PDFscale  1
 
 * Here give the numerical value for Q if i_PDFscale=3 (for all other choices
 *    the value is irrelevant)    
