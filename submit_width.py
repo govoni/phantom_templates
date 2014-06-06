@@ -47,6 +47,7 @@ if __name__ == '__main__':
     parser.add_argument('-t', '--template' , default= 'none',   help='input template file [none]')
     parser.add_argument('-f', '--folder'   , default= 'none',   help='local folder name [from the date]')
     parser.add_argument('-c', '--channel'  , default= 'none',   help='production channel (list of leptons)')
+    parser.add_argument('-T', '--Top'      , default= 'none',   help='number of tops (no restriction)')
     
     args = parser.parse_args ()
 
@@ -89,7 +90,9 @@ if __name__ == '__main__':
         getstatusoutput ('mkdir ' + args.folder)
         replaceParameterInFile (args.template, args.folder + '/r.in', substitute)
         
-        command = './setupdir.pl -b /afs/cern.ch/user/g/govoni/work/PHANTOM/phantom_at_cern/phantom_1_2_3'
+        command = './setupdir2.pl -b /afs/cern.ch/user/g/govoni/work/PHANTOM/phantom_at_cern/phantom_1_2_5'
+        if (args.Top != 'none') : 
+            command += ' -T ' + args.Top
         command += ' -d ' + args.folder
         command += ' -t ' + args.folder + '/r.in'
         command += ' -i "' + args.channel + '" -q ' + str (8 - len (args.channel.split ())) 
@@ -139,12 +142,12 @@ if __name__ == '__main__':
             print 'folder', gridFolder, 'does not exist, quitting'
             sys.exit (1)
         command = 'cd ' + gridFolder + '; grep SIGMA */run.out > res ; '
-        command += '/afs/cern.ch/user/g/govoni/work/PHANTOM/phantom_at_cern/phantom_1_2_3/tools/totint.exe > result '
+        command += '/afs/cern.ch/user/g/govoni/work/PHANTOM/phantom_at_cern/phantom_1_2_5/tools/totint.exe > result '
         print command
         execute (command)
                 
         command = 'cd ' + genFolder + '; grep -A 1 total\ integral gen*/run.o* > res ; '
-        command += '/afs/cern.ch/user/g/govoni/work/PHANTOM/phantom_at_cern/phantom_1_2_3/tools/gentotint.exe > result '
+        command += '/afs/cern.ch/user/g/govoni/work/PHANTOM/phantom_at_cern/phantom_1_2_5/tools/gentotint.exe > result '
         print command
         execute (command)
         
