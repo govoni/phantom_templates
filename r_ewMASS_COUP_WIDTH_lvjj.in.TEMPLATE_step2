@@ -222,7 +222,7 @@ i_eta_max_lep  1
 eta_max_lep    2.5d0
 
 * CALL iread('i_ptmiss_min',i_ptmiss_min,1) ! yes/no missing pt lower cuts 
-i_ptmiss_min  0
+i_ptmiss_min  1
 
 *      IF(i_ptmiss_min.EQ.1) CALL rread('ptmiss_min',ptmiss_min,1)  (GeV)
 ptmiss_min    20.d0
@@ -234,10 +234,10 @@ i_e_min_j     0
 e_min_j       20.d0
 
 * CALL iread('i_pt_min_j',i_pt_min_j,1) ! yes/no jet pt lower cuts (GeV)
-i_pt_min_j    0
+i_pt_min_j    1
 
 *      IF(i_pt_min_j.EQ.1) CALL rread('pt_min_j',pt_min_j,1)  (GeV)
-pt_min_j      10.d0
+pt_min_j      20.d0
 
 * CALL iread('i_eta_max_j',i_eta_max_j,1) ! yes/no jet rapidity upper cuts 
 i_eta_max_j   1
