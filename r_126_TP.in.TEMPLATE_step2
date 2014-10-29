@@ -9,7 +9,7 @@ idum  -123456789
 # PDFname	    /afs/cern.ch/sw/lcg/external/MCGenerators/lhapdf/5.8.9/share/PDFsets/
 # PDFname      /afs/cern.ch/sw/lcg/external/MCGenerators/lhapdf/5.8.9/share/PDFsets/cteq6ll.LHpdf
 # PDFname    /afs/cern.ch/user/b/ballest/phantom/lhapdf-5.8.9_work/share/lhapdf/PDFsets/cteq6ll.LHpdf
- PDFname    /afs/cern.ch/user/g/govoni/work/HiggsPlusJets/lhapdf/share/lhapdf/PDFsets
+PDFname    /afs/cern.ch/user/g/govoni/work/HiggsPlusJets/lhapdf/share/lhapdf/PDFsets/cteq6ll.LHpdf
 
 *      CALL iread('i_PDFscale',i_PDFscale,1) ! selects the way of 
 *                                            ! calculating the PDF scale:
