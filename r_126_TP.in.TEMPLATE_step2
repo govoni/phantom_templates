@@ -323,6 +323,25 @@ rm_max_jcjc 14000.d0
 * CALL iread('i_rm_min_jfjb',i_rm_min_jfjb,1) ! yes/no minimum invariant mass
 *                            ! between forward and backward jets (GeV)
 i_rm_min_jfjb  1
+
+* six
+
+* CALL iread('i_rm_min_4l',i_rm_min_4l,1) !yes/no minimum invariant mass 
+                                          ! of 4 leptons for processes with 4l
+i_rm_min_4l  1
+
+*      IF(i_rm_min_4l.EQ.1) CALL rread('rm_min_4l',rm_min_4l,1)
+
+rm_min_4l  130.d0
+
+* CALL iread('i_rm_min_2l2cq',i_rm_min_2l2cq,1) ! yes/no minimum invariant mass 
+                         !of 2 leptons and 2 central quark for processes with 2l
+i_rm_min_2l2cq  1
+
+*      IF(i_rm_min_2l2cq.EQ.1) CALL rread('rm_min_2l2cq',rm_min_2l2cq,1)
+rm_min_2l2cq 130.d0
+
+* sixend
   
 *      IF(i_rm_min_jfjb.EQ.1) CALL rread('rm_min_jfjb',rm_min_jfjb,1) 
 rm_min_jfjb 300.d0
