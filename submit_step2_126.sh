@@ -1,7 +1,7 @@
 #!/bin/bash
 
 cd GRID_FOLDER_TEMP ; 
-for fil in `find . -name "phavegas*"`  ; do echo `pwd`/$fil ; done > GEN_FOLDER_TEMP/phav.dat ; 
+for fil in `find -L . -name "phavegas*"`  ; do echo `pwd`/$fil ; done > GEN_FOLDER_TEMP/phav.dat ; 
 cd .. ; 
 
 cd GEN_FOLDER_TEMP ; 

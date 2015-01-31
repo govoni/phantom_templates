@@ -69,9 +69,8 @@ if __name__ == '__main__':
     substitute = {
         'HMASS_TEMP':  args.mass, 
         'HCOUP_TEMP':  str (math.sqrt(args.scaling)),
-        'HWIDTH_TEMP': str (args.width * args.scaling * args.scaling)
+        'HWIDTH_TEMP': str (args.width * args.scaling)
         }
-
 
     if args.step == '1' :
         # generate the grids
